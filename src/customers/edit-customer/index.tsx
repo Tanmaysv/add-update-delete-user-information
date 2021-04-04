@@ -11,11 +11,12 @@ import {
     EditCustomerHeader,
     EditCustomerWrapper,
 } from "./edit-customer-styles";
+import LoadingIcon from "../../shared/loading-icon";
 
 const EditCustomer: React.FC = (props: any) => {
     const dispatch: Dispatch<any> = useDispatch();
     const history = useHistory();
-    const { customerList, isCustomerEdited } = useSelector<
+    const { customerList, isCustomerEdited, isLoading } = useSelector<
         ApplicationState,
         CustomersState
     >((state) => state.customers);
@@ -48,6 +49,7 @@ const EditCustomer: React.FC = (props: any) => {
 
     return (
         <EditCustomerWrapper>
+            {isLoading && <LoadingIcon />}
             <EditCustomerHeader>Edit User</EditCustomerHeader>
             <CustomerInfoForm
                 inputs={inputs}

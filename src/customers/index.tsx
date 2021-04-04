@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { BUTTON, DELETE_POPUP } from "../constants";
 import ButtonComponent from "../shared/button-component";
 import GridComponent from "../shared/grid-component";
+import LoadingIcon from "../shared/loading-icon";
 import PopupComponent from "../shared/popup-component";
 import SearchBarComponent from "../shared/search-bar-component";
 import { ApplicationState } from "../store/applicationState";
@@ -33,6 +34,7 @@ const Customers: React.FC = () => {
 
     const {
         customerList,
+        isLoading,
         error,
         isCustomerDeleted,
         isCustomerEdited,
@@ -86,6 +88,7 @@ const Customers: React.FC = () => {
 
     return (
         <CustomerWrapper>
+            {isLoading && <LoadingIcon />}
             <CustomerHeader>My Customers</CustomerHeader>
             <CustomerSearchBarWrapper>
                 <SearchBarComponent

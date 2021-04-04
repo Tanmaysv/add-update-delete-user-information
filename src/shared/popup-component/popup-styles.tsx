@@ -4,7 +4,6 @@ export const PopupWrapper = styled.div`
     display: block;
     position: fixed;
     z-index: 1;
-    padding-top: 7rem;
     left: 0;
     top: 0;
     width: 100%;
@@ -14,6 +13,10 @@ export const PopupWrapper = styled.div`
 `;
 
 export const PopupContent = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: ${({ theme }) => theme.colors.white};
     margin: auto;
     padding: 1.2rem;

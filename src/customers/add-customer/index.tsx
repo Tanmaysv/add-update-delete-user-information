@@ -8,14 +8,16 @@ import { FormType } from "../../shared/type";
 import CustomerInfoForm from "../../shared/customer-info-form";
 import { ApplicationState } from "../../store/applicationState";
 import { AddCustomerHeader, AddCustomerWrapper } from "./add-customer-styles";
+import LoadingIcon from "../../shared/loading-icon";
 
 const AddCustomer: React.FC = () => {
     const dispatch: Dispatch<any> = useDispatch();
     const history = useHistory();
 
-    const { isCustomerAdded } = useSelector<ApplicationState, CustomersState>(
-        (state) => state.customers
-    );
+    const { isCustomerAdded, isLoading } = useSelector<
+        ApplicationState,
+        CustomersState
+    >((state) => state.customers);
     const { inputs, handleInputChange } = UseInputChange({} as FormType);
 
     const handleSubmit = (e: any) => {
@@ -31,6 +33,7 @@ const AddCustomer: React.FC = () => {
 
     return (
         <AddCustomerWrapper>
+            {isLoading && <LoadingIcon />}
             <AddCustomerHeader>Add User</AddCustomerHeader>
             <CustomerInfoForm
                 inputs={inputs}

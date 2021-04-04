@@ -13,6 +13,7 @@ export type CustomersType = {
     isCustomerEdited: boolean;
     isCustomerAdded: boolean;
     isCustomerDeleted: boolean;
+    isLoading: boolean;
     error: string;
 };
 
@@ -31,6 +32,7 @@ export const initialCustomersState: CustomersType = {
     isCustomerDeleted: false,
     isCustomerEdited: false,
     isCustomerAdded: false,
+    isLoading: false,
     error: "",
 };
 

@@ -16,6 +16,7 @@ export default createReducer<CustomersState, CustomersActions>(
             return {
                 ...state,
                 customerList: [] as CustomerType[],
+                isLoading: true,
             };
         },
         [getType(fetchCustomerList.success)]: (
@@ -25,6 +26,7 @@ export default createReducer<CustomersState, CustomersActions>(
             return {
                 ...state,
                 customerList: action.payload as CustomerType[],
+                isLoading: false,
             };
         },
         [getType(fetchCustomerList.failure)]: (
@@ -35,12 +37,14 @@ export default createReducer<CustomersState, CustomersActions>(
                 ...state,
                 customerList: [] as CustomerType[],
                 error: action.payload,
+                isLoading: false,
             };
         },
         [getType(deleteCustomer.request)]: (state: CustomersState) => {
             return {
                 ...state,
                 isCustomerDeleted: false,
+                isLoading: true,
             };
         },
         [getType(deleteCustomer.success)]: (
@@ -53,12 +57,14 @@ export default createReducer<CustomersState, CustomersActions>(
                 customerList: [...state.customerList].filter(
                     (cust) => cust.id !== Number(action.payload)
                 ),
+                isLoading: false,
             };
         },
         [getType(deleteCustomer.failure)]: (state: CustomersState) => {
             return {
                 ...state,
                 isCustomerDeleted: false,
+                isLoading: false,
             };
         },
         [getType(deleteCustomer.cancel)]: (state: CustomersState) => {
@@ -71,6 +77,7 @@ export default createReducer<CustomersState, CustomersActions>(
             return {
                 ...state,
                 isCustomerEdited: false,
+                isLoading: true,
             };
         },
         [getType(editCustomer.success)]: (
@@ -86,12 +93,14 @@ export default createReducer<CustomersState, CustomersActions>(
                     action.payload.id,
                     true
                 ),
+                isLoading: false,
             };
         },
         [getType(editCustomer.failure)]: (state: CustomersState) => {
             return {
                 ...state,
                 isCustomerEdited: false,
+                isLoading: false,
             };
         },
         [getType(editCustomer.cancel)]: (state: CustomersState) => {
@@ -104,6 +113,7 @@ export default createReducer<CustomersState, CustomersActions>(
             return {
                 ...state,
                 isCustomerAdded: false,
+                isLoading: true,
             };
         },
         [getType(addCustomer.success)]: (
@@ -119,12 +129,14 @@ export default createReducer<CustomersState, CustomersActions>(
                     action.payload.id,
                     false
                 ),
+                isLoading: false,
             };
         },
         [getType(addCustomer.failure)]: (state: CustomersState) => {
             return {
                 ...state,
                 isCustomerAdded: false,
+                isLoading: false,
             };
         },
         [getType(addCustomer.cancel)]: (state: CustomersState) => {
