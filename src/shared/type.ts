@@ -3,4 +3,11 @@ export type FormType = {
     username: string;
     email: string;
     phone: string;
-}
+};
+
+export const initialForm: FormType = {
+    name: "",
+    username: "",
+    email: "",
+    phone: "",
+};

@@ -1,5 +1,5 @@
 import { FormType } from "../../shared/type";
-import { CustomerType } from "./state";
+import { CustomerType } from "../redux/state";
 import moment from "moment";
 
 export const getUpdatedCustomerList = (

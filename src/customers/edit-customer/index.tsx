@@ -12,6 +12,7 @@ import {
     EditCustomerWrapper,
 } from "./edit-customer-styles";
 import LoadingIcon from "../../shared/loading-icon";
+import { isSubmitButtonDisabled } from "../helpers/is-submit-button-disabled";
 
 const EditCustomer: React.FC = (props: any) => {
     const dispatch: Dispatch<any> = useDispatch();
@@ -25,7 +26,13 @@ const EditCustomer: React.FC = (props: any) => {
     const currentUser = customerList.filter(
         (cust) => cust.id === Number(userId)
     )[0];
-    const { first_name, last_name = "", username, email, phone } = currentUser;
+    const {
+        first_name = "",
+        last_name = "",
+        username = "",
+        email = "",
+        phone = "",
+    } = currentUser;
     const initialInput: FormType = {
         name: `${first_name} ${last_name}`,
         username: username,
@@ -56,6 +63,10 @@ const EditCustomer: React.FC = (props: any) => {
                 handleInputChange={handleInputChange}
                 handleSubmit={handleSubmit}
                 handleBack={handleBack}
+                isSubmitButtonDisabled={isSubmitButtonDisabled(
+                    initialInput,
+                    inputs
+                )}
             />
         </EditCustomerWrapper>
     );

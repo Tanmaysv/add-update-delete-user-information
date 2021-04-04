@@ -11,9 +11,12 @@ export const StyledButton = styled.button<StyledButtonProps>`
     width: ${(props) => (props.width ? props.width : "auto")};
     border: 1.5px solid ${({ theme }) => theme.colors.lightGrey};
     background-color: ${({ theme }) => theme.colors.white};
-    &:hover {
+    &:not(:disabled):hover {
         background-color: ${({ theme }) => theme.colors.black};
         color: ${({ theme }) => theme.colors.white};
         cursor: pointer;
+    }
+    &:disabled {
+        cursor: not-allowed;
     }
 `;

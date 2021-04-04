@@ -17,6 +17,7 @@ type Props = {
     handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleSubmit: (e: any) => void;
     handleBack: () => void;
+    isSubmitButtonDisabled: boolean;
 };
 
 const CustomerInfoForm: React.FC<Props> = ({
@@ -24,6 +25,7 @@ const CustomerInfoForm: React.FC<Props> = ({
     handleInputChange,
     handleSubmit,
     handleBack,
+    isSubmitButtonDisabled,
 }: Props) => {
     return (
         <form onSubmit={handleSubmit}>
@@ -68,7 +70,11 @@ const CustomerInfoForm: React.FC<Props> = ({
                 />
             </CustomerInfoFormInputWrapper>
             <CustomInforFormButtonWrapper>
-                <ButtonComponent text={BUTTON.SUBMIT} onClick={handleSubmit} />
+                <ButtonComponent
+                    text={BUTTON.SUBMIT}
+                    isDisabled={isSubmitButtonDisabled}
+                    onClick={handleSubmit}
+                />
                 <ButtonComponent text={BUTTON.BACK} onClick={handleBack} />
             </CustomInforFormButtonWrapper>
         </form>

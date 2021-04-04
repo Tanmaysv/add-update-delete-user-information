@@ -6,7 +6,7 @@ import {
     editCustomer,
     fetchCustomerList,
 } from "./actions";
-import { getUpdatedCustomerList } from "./helper";
+import { getUpdatedCustomerList } from "../helpers/get-updated-customer-list";
 import { CustomersState, CustomerType, initialCustomersState } from "./state";
 
 export default createReducer<CustomersState, CustomersActions>(

@@ -1,14 +1,15 @@
 import React, { Dispatch, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import UseInputChange from "../../shared/custom-hooks/use-input-change";
+import CustomerInfoForm from "../../shared/customer-info-form";
+import LoadingIcon from "../../shared/loading-icon";
+import { initialForm } from "../../shared/type";
+import { ApplicationState } from "../../store/applicationState";
+import { isSubmitButtonDisabled } from "../helpers/is-submit-button-disabled";
 import { addCustomer } from "../redux/actions";
 import { CustomersState } from "../redux/state";
-import UseInputChange from "../../shared/custom-hooks/use-input-change";
-import { FormType } from "../../shared/type";
-import CustomerInfoForm from "../../shared/customer-info-form";
-import { ApplicationState } from "../../store/applicationState";
 import { AddCustomerHeader, AddCustomerWrapper } from "./add-customer-styles";
-import LoadingIcon from "../../shared/loading-icon";
 
 const AddCustomer: React.FC = () => {
     const dispatch: Dispatch<any> = useDispatch();
@@ -18,7 +19,7 @@ const AddCustomer: React.FC = () => {
         ApplicationState,
         CustomersState
     >((state) => state.customers);
-    const { inputs, handleInputChange } = UseInputChange({} as FormType);
+    const { inputs, handleInputChange } = UseInputChange(initialForm);
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -31,6 +32,8 @@ const AddCustomer: React.FC = () => {
         isCustomerAdded && history.push("/");
     }, [isCustomerAdded]);
 
+    console.log("inputs in add:", inputs);
+
     return (
         <AddCustomerWrapper>
             {isLoading && <LoadingIcon />}
@@ -40,6 +43,10 @@ const AddCustomer: React.FC = () => {
                 handleInputChange={handleInputChange}
                 handleSubmit={handleSubmit}
                 handleBack={handleBack}
+                isSubmitButtonDisabled={isSubmitButtonDisabled(
+                    initialForm,
+                    inputs
+                )}
             />
         </AddCustomerWrapper>
     );
