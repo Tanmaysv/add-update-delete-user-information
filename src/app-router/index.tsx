@@ -1,10 +1,5 @@
 import React from "react";
-import {
-    BrowserRouter,
-    BrowserRouter as Router,
-    Route,
-    Switch,
-} from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Customers from "../customers";
 import AddCustomer from "../customers/add-customer";
 import EditCustomer from "../customers/edit-customer";

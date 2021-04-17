@@ -52,7 +52,7 @@ const EditCustomer: React.FC = (props: any) => {
 
     useEffect(() => {
         isCustomerEdited && history.push("/");
-    }, [isCustomerEdited]);
+    }, [isCustomerEdited, history]);
 
     return (
         <EditCustomerWrapper>

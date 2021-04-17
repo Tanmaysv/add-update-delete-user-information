@@ -1,4 +1,4 @@
-import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
+import { GridColumn as Column } from "@progress/kendo-react-grid";
 import React from "react";
 import { StyledGrid } from "./grid-styles";
 

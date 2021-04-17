@@ -30,9 +30,7 @@ const AddCustomer: React.FC = () => {
 
     useEffect(() => {
         isCustomerAdded && history.push("/");
-    }, [isCustomerAdded]);
-
-    console.log("inputs in add:", inputs);
+    }, [isCustomerAdded, history]);
 
     return (
         <AddCustomerWrapper>

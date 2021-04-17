@@ -35,7 +35,6 @@ const Customers: React.FC = () => {
     const {
         customerList,
         isLoading,
-        error,
         isCustomerDeleted,
         isCustomerEdited,
         isCustomerAdded,
@@ -76,7 +75,7 @@ const Customers: React.FC = () => {
     useEffect(() => {
         isCustomerDeleted && setUserId("");
         dispatch(deleteCustomer.cancel());
-    }, [isCustomerDeleted]);
+    }, [isCustomerDeleted, dispatch]);
 
     useEffect(() => {
         !isCustomerEdited &&

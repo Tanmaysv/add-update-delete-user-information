@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SearchBarComponent from "../shared/search-bar-component";
 import { StyledSearchBar } from "../shared/search-bar-component/search-bar-styles";
 
 export const CustomerWrapper = styled.div`
