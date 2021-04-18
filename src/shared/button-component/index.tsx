@@ -5,15 +5,17 @@ type Props = {
     text: string;
     onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     width?: string;
+    height?: string;
     isDisabled?: boolean;
 };
 const ButtonComponent: React.FC<Props> = ({
     text,
     onClick,
     width,
+    height,
     isDisabled,
 }: Props) => (
-    <StyledButton width={width} onClick={onClick} disabled={isDisabled}>
+    <StyledButton height={height} width={width} onClick={onClick} disabled={isDisabled}>
         {text}
     </StyledButton>
 );

@@ -1,4 +1,4 @@
-import React, { Dispatch, useEffect, useState } from "react";
+import React, { Dispatch, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { BUTTON, DELETE_POPUP } from "../constants";
@@ -10,10 +10,12 @@ import SearchBarComponent from "../shared/search-bar-component";
 import { ApplicationState } from "../store/applicationState";
 import { CustomersColumn } from "./columns";
 import {
-    CustomerHeader,
+    CustomerHeaderTitle,
     CustomerWrapper,
     CustomerSearchBarWrapper,
     CustomerButtonWrapper,
+    CustomerHeaderSection,
+    ToggleButtonWrapper,
 } from "./customers-styles";
 import {
     addCustomer,
@@ -23,7 +25,11 @@ import {
 } from "./redux/actions";
 import { CustomersState, CustomerType } from "./redux/state";
 
-const Customers: React.FC = () => {
+type Props = {
+    onToggleButtonClick: () => void;
+};
+
+const Customers: React.FC<Props> = ({ onToggleButtonClick }: Props) => {
     const [userId, setUserId] = useState<string>("");
     const history = useHistory();
     const dispatch: Dispatch<any> = useDispatch();
@@ -88,7 +94,16 @@ const Customers: React.FC = () => {
     return (
         <CustomerWrapper>
             {isLoading && <LoadingIcon />}
-            <CustomerHeader>My Customers</CustomerHeader>
+            <CustomerHeaderSection>
+                <CustomerHeaderTitle>My Customers</CustomerHeaderTitle>
+                <ToggleButtonWrapper>
+                    <ButtonComponent
+                        text={"Toggle Light/Dark Mode"}
+                        onClick={onToggleButtonClick}
+                        height={"7vh"}
+                    />
+                </ToggleButtonWrapper>
+            </CustomerHeaderSection>
             <CustomerSearchBarWrapper>
                 <SearchBarComponent
                     value={searchValue}

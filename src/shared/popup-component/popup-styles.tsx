@@ -17,10 +17,10 @@ export const PopupContent = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.backgroundColor};
     margin: auto;
     padding: 1.2rem;
-    border: 1px solid ${({ theme }) => theme.colors.lightGrey};
+    border: 1px solid ${({ theme }) => theme.borderColor};
     width: 60%;
     border-radius: 0.4rem;
 `;

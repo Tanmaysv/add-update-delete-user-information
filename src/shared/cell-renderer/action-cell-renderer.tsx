@@ -5,7 +5,7 @@ const StyledLink = styled(Link)`
     text-decoration: underline !important;
     margin-right: 0.5rem;
     &:hover {
-        color: ${({ theme }) => theme.colors.blue};
+        color: ${({ theme }) => theme.linkColor};
     }
 `;
 

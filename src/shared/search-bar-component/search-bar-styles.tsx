@@ -11,7 +11,7 @@ export const SvgWrapper = styled(FaSearch)`
     width: 3%;
     height: 50%;
     margin: 0.5rem 0.5rem 0.5rem 0rem;
-    color: ${({ theme }) => theme.colors.lightGrey};
+    color: ${({ theme }) => theme.borderColor};
 `;
 
 export const InputComponentWrapper = styled.div`

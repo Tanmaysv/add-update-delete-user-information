@@ -25,7 +25,7 @@ export const StyledLoadingIcon = styled.div`
         width: 50px;
         height: 50px;
         border: 10px solid #dddddd;
-        border-top-color: ${({ theme }) => theme.colors.black};
+        border-top-color: ${({ theme }) => theme.textColor};
         border-radius: 50%;
         animation: ${LoadAnimation} 1s ease infinite;
     }
